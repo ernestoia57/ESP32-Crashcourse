@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "author": "Esteban ISIDRO ACERO",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": -6,
+      "left": -10,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -178,
+      "left": -16,
+      "attrs": {
+        "pins": "i2c",
+        "i2cAddress": "0x27"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 120,
+      "left": -140,
+      "attrs": {
+        "color": "red",
+        "label": "INT",
+        "bounce": "0"
+      }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+
+    [ "lcd1:VCC", "esp:5V", "red", [ "h0" ] ],
+    [ "lcd1:GND", "esp:GND.1", "black", [ "h0" ] ],
+    [ "lcd1:SDA", "esp:21", "green", [ "h0" ] ],
+    [ "lcd1:SCL", "esp:22", "blue", [ "h0" ] ],
+
+    [ "btn1:1.r", "esp:18", "yellow", [ "h0" ] ],
+    [ "btn1:2.r", "esp:GND.2", "black", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
