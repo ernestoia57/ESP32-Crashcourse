@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "author": "OpenAI",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-v1", "id": "esp", "top": -21.92, "left": -4.8, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "ledRojo",
+      "top": -70.8,
+      "left": 186.2,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledAmarillo",
+      "top": -70.8,
+      "left": 224.6,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledVerde",
+      "top": -70.8,
+      "left": 263,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rRojo",
+      "top": -34.45,
+      "left": 124.8,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rAmarillo",
+      "top": 3.95,
+      "left": 124.8,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rVerde",
+      "top": 42.35,
+      "left": 124.8,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 92.6,
+      "left": -96,
+      "attrs": { "color": "gray" }
+    }
+  ],
+  "connections": [
+    [ "esp:25", "rRojo:1", "green", [ "h0" ] ],
+    [ "rRojo:2", "ledRojo:A", "green", [ "h0" ] ],
+    [ "ledRojo:C", "esp:GND.1", "black", [ "h0", "v0" ] ],
+    [ "esp:26", "rAmarillo:1", "green", [ "h0" ] ],
+    [ "rAmarillo:2", "ledAmarillo:A", "green", [ "h0" ] ],
+    [ "ledAmarillo:C", "esp:GND.1", "black", [ "h0", "v0" ] ],
+    [ "esp:27", "rVerde:1", "green", [ "h0" ] ],
+    [ "rVerde:2", "ledVerde:A", "green", [ "h0" ] ],
+    [ "ledVerde:C", "esp:GND.1", "black", [ "h0", "v0" ] ],
+    [ "esp:14", "btn1:1.l", "blue", [ "h0" ] ],
+    [ "esp:D25", "rRojo:1", "red", [ "h-9.6", "v-96" ] ],
+    [ "esp:D26", "rAmarillo:1", "gold", [ "h-19.2", "v-115.2", "h134.4", "v48" ] ],
+    [ "esp:D27", "rVerde:1", "green", [ "h-28.8", "v-134.4", "h134.4", "v96" ] ],
+    [ "btn1:2.r", "esp:GND.2", "black", [ "h0" ] ],
+    [ "btn1:1.r", "esp:D14", "#8f4814", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
